@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="title">
+        <h1 class="para2" >Modified Social Spider Optimization and K-Means hybridization for Image Quantization</h1>
+    </div>
+    <div class="text-content">
+        <h1 class="heading1">Abstract</h1>
+        <p class="para1">
+            Image quantization is a way to simplify images by reducing the 
+            number of colours while keeping them looking the same. This paper suggests a 
+            new method that combines two techniques, Social Spider Optimization (SSO) 
+            and K-Means clustering, to make this process faster and better image quantiza- 
+            tion. SSO is like how social spiders work together to find food. It helps K-Means, 
+            which can be slow, get started and finish faster by choosing the right starting 
+            points through finding the best centroids. This new way not only speeds things 
+            up but also makes the pictures look better. In tests, we tried this SSO-K-Means 
+            method on different sets of images and compared it to regular K-Means. The 
+            results showed that using modified SSO with K-Means improved image quality 
+            and made the process faster. This method could be useful in tasks like image 
+            compression, retrieval, and other image jobs where simplifying pictures is im- 
+            portant. <br><br>
+            <b>Keywords:</b> Colour quantization, K-Means clustering, Social Spider Optimization           
+        </p>
+        <img src="https://res.cloudinary.com/dpxpefedp/image/upload/v1720626834/sso_fxdm7d.jpg" class="absimage">
+        <h1 class="heading1">Introduction</h1>
+        <p class="para1">
+            Image quantization is a basic technique in digital image processing that serves the 
+            need of reducing the complexity of an image's colour information while preserving im- 
+            age retrieval, and various other image-related tasks. Image quantization typically con- 
+            sists of two main steps: colour palette generation and pixel mapping. 
+            <br>
+            <br>
+            The initial step involves creating a limited set of dominant colours, known as a col- 
+            our palette. This palette is an important element of the quantization process as it dictates 
+            the colours that will be available for representing the image. The palette can contain apredefined number of colours, and these colours are usually chosen to be the most dom- 
+            inant ones in the original image. There are several methods to generate colour palettes, 
+            including popular techniques like K-Means clustering, Median Cut, and Octree quanti- 
+            zation. These methods aim to find an equal mix of colours that capture the required 
+            visual characteristics of the image.
+            
+            <br>
+            <br>
+            In the next step of image quantization, each pixel in the image is mapped to the 
+            nearest colour in the colour palette. This mapping is done by comparing the pixel's 
+            original colour to the colours in the palette and selecting the closest match. This ensures 
+            that the quantized image retains as much visual fidelity as possible while reducing the 
+            total number of unique colours used. The mapping can be achieved through various 
+            algorithms and techniques, such as the Euclidean distance or the mean squared error. 
+            Once the mapping is complete, the quantized image contains only the colours from the 
+            palette, resulting in a more simplified and better representation. 
+            <br>
+            <br>
+            We explore image quantization and introduce a new methodology 
+            by combining two powerful techniques: Social Spider Optimization (SSO) and K
+            Means Clustering. Our ultimate goal is to make quantized image more efficient. This 
+            approach can be useful in various applications, such as compressing image, finding 
+            images based on their content, dividing images into different parts based on their 
+            identity, and analyzing the given image.
+        </p>
+        <h1 class="heading1">K-Means Clustering for image quantization</h1>
+        <p class="para1">
+            K-Means clustering is an extensively used unsupervised machine learning algorithm, essentially applied in data analysis, image processing, and various fields where 
+            data or objects need to be grouped into clusters based on their similarities. The core 
+            idea behind K-Means is to separate a dataset into K distinct, non-overlapping clusters, 
+            with K being a user-defined parameter. The process is initiated by selecting K initial 
+            cluster centers, often randomly. Each data point is then assigned to the closest cluster 
+            center, based on a distance metric like Euclidean distance. After this assignment, the 
+            cluster centers are recalculated as the average of all data points in their respective clus- 
+            ters. This assignment and re-calculation process is iteratively repeated until conver- 
+            gence, which occurs when there's slight change in the data point assignments and clus- 
+            ter centers. <br><br>
+            <b>2.1 Working of K-Means algorithm</b> <br>
+            Input: Upload the image and convert to the required scale (RGB or BGR). <br>
+            Initialization: Randomly initialize the centers as per requirement of clusters. <br>
+            Clustering: For each pixel of an image calculate the Euclidean distance d from the 
+            initialized centroids. Group the pixels based on the calculated distance d to the nearest 
+            centers. <br>
+            Re-initialization of centroids: After all pixels have been grouped, calculate the new 
+            centroids by taking mean of all the points in their respective cluster. <br>
+            Convergence: Repeat the above clustering process till we get the minimal solution or 
+            for a given number of iterations. <br>
+            Clustered Image: After executing all the above steps, finally the quantized image is 
+            generated by reshaping the clusters. <br>
+            Euclidean distance:
+             
+            d=√(𝑟1 − 𝑟2)2 + (𝑔1 − 𝑔2)2 + (𝑏1 − 𝑏2)2 <br>
+            The Euclidean distance (d) between two colours, represented as (r1, g1, b1) and 
+            (r2, g2, b2). <br>
+            Mean: (∑y€c ∑x€c p(X, Y))/k <br>
+            p(x,y) represent pixel in that cluster. C represents the new centroid for that cluster which 
+            is calculated my taking average of all the pixels in that cluster. k represents number of  
+            clusters.           
+        </p>
+        <img src="https://res.cloudinary.com/dpxpefedp/image/upload/v1720627170/kmeans_q6oqhx.png" class="working-image"> 
+        <h1 class="heading1"> Social Spider Optimization </h1>
+        <p class="para1">
+            Social Spider Optimization (SSO) [3,4] is a nature-inspired optimization algorithm that 
+            draws its inspiration from the movement and behavior of social spiders. It was recently 
+            been added to the family of nature-inspired optimization algorithms, aiming to solve 
+            complex problems in various domains, including image clustering. By mimicking na- 
+            ture's teamwork, communication, and adaptability, SSO offers a best and efficient ap- 
+            proach to image clustering, making it the most interested area for researchers seeking 
+            innovative and effective solutions in the field of image analysis and data organization. <br><br>
+             
+                <b>3.1 Working of social spider optimization  </b><br><br>
+            Random initialization: Spiders are initialized randomly in the sample space according 
+            to the required number of clusters: Each spider represents a potential solution. <br><br>
+            Population separation and Fitness evaluation: Spiders are classified randomly into 
+            male and female spiders. Fitness value for all spiders in the population is calculated by 
+            using objective function. Fitness values are computed based on the absolute differences 
+             between each spider’s position and corresponding pixel value.<br><br> 
+            Weight calculation and Communication: Weights  are calculated for both male 
+            and female spiders and communication about weights is done through vibration opera- 
+            tor. Information exchange is the principal mechanism in SSO.<br><br> 
+            Grouping Population and Mating: The female population is assigned to a new posi- 
+            tion according to random probability factor and vibrations received. The male popula- 
+            tion is divided into dominant and non-dominant groups based on their weights. The 
+            dominant group participate in mating with female population to produce new spider. If 
+            new spider has better fitness value than worst spider in the population, new spider re- 
+            places the worst spider. <br><br>
+            Convergence: The above process is repeated till minimal solution is obtained or for a 
+            given number of iterations to produce best centroids for a given number of clusters. <br><br>
+        </p>
+        <h1 class="heading1"> Modified SSO and K-Means for Image Quantization  </h1>
+        <p class="para1">
+            Incorporating K-Means clustering with SSO, an image clustering technique, the accu- 
+            racy can be substantially improved. SSO is responsible for the initial optimization of 
+            cluster centers by efficiently searching for the best spots within the input space. This is 
+            analogous to how social spiders cooperatively hunt their prey by working together. 
+            Through harnessing the power of SSO, we can finalize and examine the positions of 
+            cluster centroids to better encapsulate the fundamental structure of the image infor- 
+            mation. The resulting clusters are widely regarded as highly refined,  
+            <br><br>
+            Modified SSO is a sub part of SSO where only half of the process is used for optimizing 
+            cluster centres. 
+            The process begins with optimizing the starting cluster centers by modified SSO. Af- 
+            terwards, K-Means takes over the task of assigning data points to their respective clus- 
+            ters by computing the nearest centroid based on feature space distance. This step is 
+            crucial because it arranges data points based on their similarities, which is the key to 
+            achieving meaningful clustering’s. A satisfactory clustering solution is achieved 
+            through an iterative approach that relies on alternating modified SSO and K-Means. 
+            During this approach, modified SSO continues to work on optimizing cluster centers 
+            while K-Means works on reassigning data points based on the most recently optimized 
+            centroids. This process continues iteratively until clusters stabilize, meaning
+            <br>
+            <br>
+            <b>Proposed Methodology   </b><br><br>
+            Loading the Image. Initially image file is loaded from specified path and converted to 
+            RGB colour format.  <br><br>
+            Initializing Constants. Various constants are defined, including for optimization such 
+            as number of generations, number of samples etc. <br><br> 
+            Initializing spider positions and fitness calculation. Spider positions are initialized 
+            randomly and fitness is calculated. Fitness is calculated based on absolute difference 
+            between spider position and pixel values. <br><br> 
+            Weight Calculation and Best fitness Evaluation. Weights of all spiders are calcu- 
+            lated. It is used to determine how much influence each spider has on the movement of 
+            other spiders. Best fitness values are stored for each generation.  <br><br>
+            Convergence. The above process is repeated till minimal solution is obtained or for a 
+            given number of generations and given number of samples to produce best centroids.  <br><br>
+            K-Means Clustering. For the given input number of clusters, the positions which have 
+            best fitness values are taken as initial centroids for K-Means and clustered image is 
+            produced.            
+        </p>
+        <h1 class="heading1">Flowchart of SSO K-Means</h1>
+        <img src="https://res.cloudinary.com/dpxpefedp/image/upload/v1720627185/sso_slcbhz.png" class="flowimg">
+        <h1 class="heading">Experimatal Results</h1>
+        <img class="result3" src="https://res.cloudinary.com/dpxpefedp/image/upload/v1720627156/experimental_results_ghpgdz.png">
+        <p class="para1"><b>SSIM values:</b><br></p>
+        <img class="result" src="https://res.cloudinary.com/dpxpefedp/image/upload/v1720627179/ssim_ortfao.png">
+        <p class="para1"><b>PSNR values:</b><br></p>
+        <img class="result" src="https://res.cloudinary.com/dpxpefedp/image/upload/v1720627173/psnr_calculation_zqrtyx.png">
+        <p class="para1"><b>MSE values:</b><br></p>
+        <img class="result1" src="https://res.cloudinary.com/dpxpefedp/image/upload/v1720627160/mse_i2kbbd.png">
+
+        <h1 class="heading1">Conclusion</h1>
+        <p class="para3">
+            Had explored the productiveness of modified Social Spider 
+            Optimization which is a sub part of SSO as one of the valuable methods for optimizing 
+            centroids and producing initial centroids in the context of K-Means clustering. 
+            Our study shows effectiveness of modified SSO in efficiently finding suitable initial  
+            Centroids, contributing remarkably to improving convergence speed and performance  
+            of the K-Means algorithm. The experimental results reveal that leveraging modified  
+            SSO for centroid optimization leads to improved clustering accuracy.  SSO significantly  
+            enhances the quality of initial cluster centers. These optimized starting points facilitate  
+            better convergence of the K-Means algorithm and consequently yield more accurate  
+            and representative clusters.          
+        </p>
+    </div>
+</body>
+</html>
